@@ -7,7 +7,7 @@
  * @FilePath: \xen-Admin\src\views\login\index.vue
 -->
 <template>
-  <div> login</div>
+  <div>login</div>
 </template>
 
 <script setup></script>
