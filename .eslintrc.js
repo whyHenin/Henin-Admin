@@ -36,6 +36,9 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    // 允许不使用驼峰命名组件
+    "vue/multi-word-component-names": 0,
+    // 不允许使用var
     "no-var": "error",
     "prettier/prettier": "error",
     // 禁止出现console

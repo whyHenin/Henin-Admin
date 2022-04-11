@@ -1,0 +1,12 @@
+###
+ # @Author: Chen Xin
+ # @Date: 2022-04-11 23:41:35
+ # @LastEditTime: 2022-04-12 00:11:41
+ # @LastEditors: Chen Xin
+ # @Description: 
+ # @FilePath: \Henin-Admin\.husky\pre-commit
+### 
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged

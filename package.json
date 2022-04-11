@@ -7,27 +7,43 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
-    "prettier": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.18.0",
-    "@typescript-eslint/parser": "^5.18.0",
     "element-plus": "^2.1.4",
-    "eslint": "^8.13.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.6.0",
-    "prettier": "^2.6.2",
     "vue": "^3.2.25"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
     "@vitejs/plugin-vue": "^2.2.0",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.6.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
+    "mrm": "^4.0.0",
+    "prettier": "^2.6.2",
     "sass": "^1.49.9",
     "typescript": "^4.5.4",
     "unplugin-auto-import": "^0.6.6",
     "unplugin-vue-components": "^0.18.3",
     "vite": "^2.8.0",
     "vue-tsc": "^0.29.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,vue,js,jsx}": [
+      "eslint --cache --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }
