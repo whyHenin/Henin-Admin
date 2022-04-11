@@ -1,17 +1,17 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-11 16:11:12
+ * @LastEditTime: 2022-04-11 18:00:39
  * @LastEditors: Chen Xin
  * @Description: config of vite
- * @FilePath: \xen-Admin\vite.config.ts
+ * @FilePath: \Henin-Admin\vite.config.ts
  */
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { defineConfig } from "vite"
+import vue from "@vitejs/plugin-vue"
+import { resolve } from "path"
+import AutoImport from "unplugin-auto-import/vite"
+import Components from "unplugin-vue-components/vite"
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,34 +20,35 @@ export default defineConfig({
     AutoImport({
       resolvers: [
         ElementPlusResolver({
-          importStyle: 'sass',
+          importStyle: "sass",
         }),
       ],
     }),
     Components({
       resolvers: [
         ElementPlusResolver({
-          importStyle: 'sass',
+          importStyle: "sass",
         }),
       ],
     }),
   ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src/'),
+      "@": resolve(__dirname, "src"),
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
         // 自定义的主题色
-        additionalData: `@use "@/theme/element/index.scss" as *;`,
+        additionalData: `@use "@/styles/element/index.scss" as *;`,
       },
     },
   },
   server: {
-    port: 1027,
+    port: 3000,
     open: false,
+    https:false,
     // proxy: {
     //   '/api': {
     //     target: 'http:xxxx',
@@ -56,4 +57,4 @@ export default defineConfig({
     //   }
     // }
   },
-});
+})
