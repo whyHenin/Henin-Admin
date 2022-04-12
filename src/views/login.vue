@@ -1,13 +1,14 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-11 16:07:49
- * @LastEditTime: 2022-04-11 16:08:57
+ * @LastEditTime: 2022-04-12 21:52:31
  * @LastEditors: Chen Xin
  * @Description: 
- * @FilePath: \xen-Admin\src\views\login\index.vue
+ * @FilePath: \Henin-Admin\src\views\login.vue
 -->
 <template>
   <div>login</div>
+  <el-button type="">login页写入pinia</el-button>
 </template>
 
 <script setup></script>
