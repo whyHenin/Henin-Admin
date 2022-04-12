@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-12 00:38:21
+ * @LastEditTime: 2022-04-12 23:41:01
  * @LastEditors: Chen Xin
  * @Description: config of vite
  * @FilePath: \Henin-Admin\vite.config.ts
@@ -46,6 +46,7 @@ export default defineConfig({
     },
   },
   server: {
+    host: "0.0.0.0",
     port: 3000,
     open: false,
     https: false,
@@ -56,5 +57,9 @@ export default defineConfig({
     //     rewrite: (path) => path.replace(/^\/api/, '')
     //   }
     // }
+  },
+  build: {
+    brotliSize: false,
+    // 消除打包大小超过500kb警告
   },
 })
