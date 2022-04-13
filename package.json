@@ -47,8 +47,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx,vue,js,jsx}": [
-      "eslint --cache --fix",
-      "prettier --write",
+      "pnpm run lint",
+      "pnpm run format",
       "git add"
     ]
   }
