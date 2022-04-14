@@ -1,13 +1,14 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-12 23:41:01
+ * @LastEditTime: 2022-04-14 23:35:52
  * @LastEditors: Chen Xin
  * @Description: config of vite
  * @FilePath: \Henin-Admin\vite.config.ts
  */
 import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
+import vueJsx from "@vitejs/plugin-vue-jsx"
 import { resolve } from "path"
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
@@ -17,6 +18,7 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 export default defineConfig({
   plugins: [
     vue(),
+    vueJsx(),
     AutoImport({
       resolvers: [
         ElementPlusResolver({

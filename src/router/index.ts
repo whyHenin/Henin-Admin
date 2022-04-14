@@ -1,12 +1,12 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-11 16:09:48
- * @LastEditTime: 2022-04-12 21:50:42
+ * @LastEditTime: 2022-04-15 00:08:31
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\index.ts
  */
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router"
 
 const routes: RouteRecordRaw[] = [
   {
@@ -22,7 +22,7 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 })
 

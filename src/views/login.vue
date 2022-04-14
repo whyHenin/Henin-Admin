@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-11 16:07:49
- * @LastEditTime: 2022-04-12 23:00:51
+ * @LastEditTime: 2022-04-14 21:14:45
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\login.vue
@@ -23,7 +23,7 @@ const setName = () => {
   userStore.updateName("李四")
 }
 const addId = () => {
-  console.log(import.meta.env.VITE_TITLE)
+  // console.log(import.meta.env.VITE_TITLE)
   userStore.updateId()
 }
 </script>
