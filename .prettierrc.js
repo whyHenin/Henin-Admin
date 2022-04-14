@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-11 17:37:09
- * @LastEditTime: 2022-04-11 18:25:04
+ * @LastEditTime: 2022-04-13 09:02:16
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\.prettierrc.js
@@ -40,8 +40,8 @@ module.exports = {
   proseWrap: "preserve",
   // 根据显示样式决定 html 要不要折行
   htmlWhitespaceSensitivity: "css",
-  // 换行符使用 lf
-  endOfLine: "lf",
+  // 换行符使用 lf/auto
+  endOfLine: "auto",
   overrides: [
     {
       files: "*.json",
