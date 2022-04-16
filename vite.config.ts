@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-14 23:35:52
+ * @LastEditTime: 2022-04-16 00:26:02
  * @LastEditors: Chen Xin
  * @Description: config of vite
  * @FilePath: \Henin-Admin\vite.config.ts
@@ -43,7 +43,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 自定义的主题色
-        additionalData: `@use "@/styles/index.scss" as *;`,
+        additionalData: `@use "@/styles/variables.scss" as *;`,
       },
     },
   },
