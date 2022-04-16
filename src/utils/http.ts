@@ -1,20 +1,27 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-12 20:50:10
- * @LastEditTime: 2022-04-12 21:01:24
+ * @LastEditTime: 2022-04-17 00:53:01
  * @LastEditors: Chen Xin
  * @Description:axios请求封装
- * @FilePath: \Henin-Admin\src\api\http.ts
+ * @FilePath: \Henin-Admin\src\utils\http.ts
  */
 //http.ts
 import axios, { AxiosRequestConfig } from "axios"
 import NProgress from "nprogress"
 
 // 设置请求头和请求路径
-axios.defaults.baseURL = "/api"
-axios.defaults.timeout = 10000
-axios.defaults.headers.post["Content-Type"] = "application/json;charset=UTF-8"
-axios.interceptors.request.use(
+const request = axios.create({
+  baseURL: import.meta.env.VITE_API_BASEURL,
+  timeout: 10000,
+  headers: {
+    Accept: "application/json, text/plain, */*",
+    "Content-Type": "application/json",
+    "X-Requested-With": "XMLHttpRequest",
+  },
+})
+// 请求拦截
+request.interceptors.request.use(
   (config): AxiosRequestConfig<any> => {
     const token = window.sessionStorage.getItem("token")
     if (token) {
@@ -28,7 +35,7 @@ axios.interceptors.request.use(
   },
 )
 // 响应拦截
-axios.interceptors.response.use((res) => {
+request.interceptors.response.use((res) => {
   if (res.data.code === 111) {
     sessionStorage.setItem("token", "")
     // token过期操作
@@ -53,7 +60,7 @@ const http: Http = {
   get(url, params) {
     return new Promise((resolve, reject) => {
       NProgress.start()
-      axios
+      request
         .get(url, { params })
         .then((res) => {
           NProgress.done()
@@ -68,7 +75,7 @@ const http: Http = {
   post(url, params) {
     return new Promise((resolve, reject) => {
       NProgress.start()
-      axios
+      request
         .post(url, JSON.stringify(params))
         .then((res) => {
           NProgress.done()
@@ -83,7 +90,7 @@ const http: Http = {
   upload(url, file) {
     return new Promise((resolve, reject) => {
       NProgress.start()
-      axios
+      request
         .post(url, file, {
           headers: { "Content-Type": "multipart/form-data" },
         })
