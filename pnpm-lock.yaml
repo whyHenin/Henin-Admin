@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@element-plus/icons-vue': ^1.1.4
   '@types/node': ^17.0.21
   '@types/nprogress': ^0.2.0
   '@typescript-eslint/eslint-plugin': ^5.18.0
@@ -30,6 +31,7 @@ specifiers:
   vue-tsc: ^0.29.8
 
 dependencies:
+  '@element-plus/icons-vue': registry.npmmirror.com/@element-plus/icons-vue/1.1.4_vue@3.2.31
   axios: 0.26.1
   element-plus: registry.npmmirror.com/element-plus/2.1.9_vue@3.2.31
   nprogress: registry.npmmirror.com/nprogress/0.2.0
