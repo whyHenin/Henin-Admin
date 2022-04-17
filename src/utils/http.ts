@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-12 20:50:10
- * @LastEditTime: 2022-04-17 00:53:01
+ * @LastEditTime: 2022-04-17 15:06:23
  * @LastEditors: Chen Xin
  * @Description:axios请求封装
  * @FilePath: \Henin-Admin\src\utils\http.ts
@@ -9,6 +9,7 @@
 //http.ts
 import axios, { AxiosRequestConfig } from "axios"
 import NProgress from "nprogress"
+import "nprogress/nprogress.css"
 
 // 设置请求头和请求路径
 const request = axios.create({

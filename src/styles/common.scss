@@ -1,0 +1,17 @@
+// nprogress 进度条样式
+#nprogress .bar {
+  background: linear-gradient(138deg, #B181FF -3%, #B181FF -3%, #820FC9 44%, #5314D8 86%, #5314D8 86%);
+  height: 3px;
+}
+.header-icon {
+  height: 100%;
+  padding: 0 10px;
+  width: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: #f1f1f1;
+  }
+}

@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-11 21:33:57
- * @LastEditTime: 2022-04-17 10:39:40
+ * @LastEditTime: 2022-04-17 19:33:59
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\main.ts
@@ -12,7 +12,6 @@ import store from "./store"
 // 加载全局样式
 import "@/styles/index.scss"
 import App from "./App.vue"
-
 import * as ElIconModules from "@element-plus/icons-vue"
 
 const app = createApp(App)
@@ -23,6 +22,7 @@ for (const iconName in ElIconModules) {
     app.component(iconName, item)
   }
 }
+
 app.use(router).use(store)
 
 app.mount("#app")

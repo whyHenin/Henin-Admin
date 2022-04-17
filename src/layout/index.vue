@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 01:50:54
- * @LastEditTime: 2022-04-17 10:43:00
+ * @LastEditTime: 2022-04-17 22:02:15
  * @LastEditors: Chen Xin
  * @Description: 后台布局
  * @FilePath: \Henin-Admin\src\layout\index.vue
@@ -9,14 +9,17 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside width="200px">
+      <el-aside>
+        <!-- <h1>henin-Admin</h1> -->
         <Menu />
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>
+          <Header />
+        </el-header>
         <el-main>
           <!-- 子路由出口 -->
-          <router-view></router-view>
+          <router-view> </router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -25,19 +28,28 @@
 
 <script setup lang="ts">
 import Menu from "./components/menu.vue"
+import Header from "./components/header/index.vue"
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .el-container {
   height: 100vh;
 }
 .el-header {
-  border: 1px solid #000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 .el-main {
-  border: 1px solid #000;
+  background-color: #f1f1f1;
 }
 .el-aside {
   background-color: #545c64;
+  width: auto;
+  h1 {
+    width: 100%;
+    height: 60px;
+  }
 }
 </style>

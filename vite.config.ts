@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-17 01:01:13
+ * @LastEditTime: 2022-04-17 19:32:06
  * @LastEditors: Chen Xin
  * @Description: config of vite
  * @FilePath: \Henin-Admin\vite.config.ts
@@ -13,6 +13,8 @@ import { resolve } from "path"
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
+import Icons from "unplugin-icons/vite"
+import IconsResolver from "unplugin-icons/resolver"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -28,11 +30,13 @@ export default defineConfig({
     }),
     Components({
       resolvers: [
+        IconsResolver(),
         ElementPlusResolver({
           importStyle: "sass",
         }),
       ],
     }),
+    Icons({ autoInstall: true }),
   ],
   resolve: {
     alias: {

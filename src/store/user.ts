@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-12 22:04:22
- * @LastEditTime: 2022-04-12 22:38:31
+ * @LastEditTime: 2022-04-17 13:30:58
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\store\user.ts
@@ -19,7 +19,7 @@ export const useUserStore = defineStore({
     }
   },
   actions: {
-    updateName(name) {
+    updateName(name: string) {
       this.name = name
     },
     updateId() {
