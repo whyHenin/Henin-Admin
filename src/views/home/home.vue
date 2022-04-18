@@ -1,13 +1,12 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-12 21:39:15
- * @LastEditTime: 2022-04-17 13:42:43
+ * @LastEditTime: 2022-04-19 00:45:58
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\home\home.vue
 -->
 <template>
-  <div class="home">home</div>
   <el-button type="" @click="$router.push('/login')">去login页</el-button>
   <p>login的数据：{{ userStore.name }}</p>
   <p>test:{{ test }}</p>
@@ -31,8 +30,4 @@ const add = () => {
 }
 </script>
 
-<style lang="scss" scoped>
-.home {
-  color: $red;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 20:09:33
- * @LastEditTime: 2022-04-17 20:34:56
+ * @LastEditTime: 2022-04-19 01:00:27
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\user.vue
@@ -16,9 +16,9 @@
     </span>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item>Action 1</el-dropdown-item>
-        <el-dropdown-item divided>Action 2</el-dropdown-item>
-        <el-dropdown-item>Action 3</el-dropdown-item>
+        <el-dropdown-item>个人信息</el-dropdown-item>
+        <el-dropdown-item divided>个人设置</el-dropdown-item>
+        <el-dropdown-item>退出系统</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>

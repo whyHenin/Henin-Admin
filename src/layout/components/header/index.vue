@@ -1,12 +1,13 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 13:21:54
- * @LastEditTime: 2022-04-17 20:27:31
+ * @LastEditTime: 2022-04-19 00:47:49
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\index.vue
 -->
 <template>
+  <div class="logo">Henin-Admin</div>
   <!-- 收缩侧边栏 -->
   <toggleSideBar />
   <!-- 面包屑导航 -->
@@ -33,6 +34,14 @@ import user from "./user.vue"
 </script>
 
 <style lang="scss" scoped>
+.logo {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f1f1f1;
+}
 .divier {
   margin-left: auto;
 }

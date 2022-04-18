@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 14:08:38
- * @LastEditTime: 2022-04-17 15:16:42
+ * @LastEditTime: 2022-04-19 00:38:59
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\Breadcrumb.vue
@@ -26,4 +26,8 @@ const routes = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.el-breadcrumb {
+  padding: 0 20px;
+}
+</style>

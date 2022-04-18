@@ -1,14 +1,14 @@
 <!--
  * @Author:ChenXin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-17 22:09:55
+ * @LastEditTime: 2022-04-18 22:25:40
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\App.vue
 -->
 
 <template>
-  <el-config-provider :locale="zhCn" size="default " :z-index="2000">
+  <el-config-provider :locale="zhCn" size="default" :z-index="2000">
     <router-view />
   </el-config-provider>
 </template>
