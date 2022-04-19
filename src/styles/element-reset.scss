@@ -25,6 +25,9 @@
 // input样式
 .el-input {
   border-radius: 2px;
+  .el-input--suffix {
+    padding-right: 0;
+  }
   .el-input__inner {
     border-radius: 2px;
     background-color: #f7f8fa;
@@ -38,6 +41,7 @@
 .el-button {
   padding: 8px 16px;
   border-radius: 2px;
+  border: none;
   // icon组件
   .el-icon {
     margin-right: 8px;
@@ -47,11 +51,12 @@
 .el-menu {
   border-right: 0;
   font-weight: bold;
+  background-color: #fff;
   .el-sub-menu {
     .el-sub-menu__title {
       color: #4e5969;
       &:hover {
-        background-color: #fff;
+        // background-color: #fff;
         color: $color-primary;
       }
     }
@@ -82,4 +87,7 @@
 // 面包屑样式
 .el-breadcrumb {
   padding: 0 20px;
+}
+.el-table__body .el-table__row {
+  background-color: #fff;
 }

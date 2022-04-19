@@ -4,9 +4,6 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    '* @Author': Chen Xin
-    '* @Description':  * @FilePath: \Henin-Admin\components.d.ts
-    '* @LastEditTime': 2022-04-19 09:01:19
     Edit: typeof import('./src/components/edit.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
@@ -17,6 +14,7 @@ declare module 'vue' {
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElDivider: typeof import('element-plus/es')['ElDivider']
     ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
@@ -33,6 +31,8 @@ declare module 'vue' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     HIcon: typeof import('./src/components/HIcon.vue')['default']
     IRiAddLine: typeof import('~icons/ri/add-line')['default']
@@ -41,6 +41,7 @@ declare module 'vue' {
     IRiArrowLeftCircleLine: typeof import('~icons/ri/arrow-left-circle-line')['default']
     IRiArrowRightCircleLine: typeof import('~icons/ri/arrow-right-circle-line')['default']
     IRiDashboardLine: typeof import('~icons/ri/dashboard-line')['default']
+    IRiDownload2Line: typeof import('~icons/ri/download2-line')['default']
     IRiFullscreenExitFill: typeof import('~icons/ri/fullscreen-exit-fill')['default']
     IRiFullscreenFill: typeof import('~icons/ri/fullscreen-fill')['default']
     IRiRefreshLine: typeof import('~icons/ri/refresh-line')['default']

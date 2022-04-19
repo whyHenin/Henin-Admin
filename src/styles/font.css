@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'wenquan';
+  /* 重命名字体名 */
+  src: url('@/assets/font/WenQuanDengKuanWeiMiHei.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NotoSansCJK-DemiLight-4';
+  /* 重命名字体名 */
+  src: url('@/assets/font/NotoSansCJK-DemiLight-4.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceHanSansCN-Light-2';
+  /* 重命名字体名 */
+  src: url('@/assets/font/SourceHanSansCN-Light-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}

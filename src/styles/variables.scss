@@ -1,18 +1,34 @@
 // 全局sass变量
-@forward "element-plus/theme-chalk/src/common/var.scss"with ($colors: ("primary": ("base": #165DFF,
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "white": #FFF,
+    "black": #000,
+    "primary": (
+      "base": #165dff,
     ),
-    "success": ("base": #00B42A,
+    "success": (
+      "base": #00b42a,
     ),
-    "warning": ("base": #FADC19,
+    "warning": (
+      "base": #fadc19,
     ),
-    "danger": ("base": #F77234,
+    "danger": (
+      "base": #f77234,
     ),
-    "error": ("base": #F53F3F,
+    "error": (
+      "base": #f53f3f,
     ),
-    "info": ("base": #86909c,
+    "info": (
+      "base": #86909c,
     ),
   ),
-  // $button-padding-horizontal: (
-  //   "default": 80px
-  // )
+  $fill-color: (
+    "": #f0f2f5,
+    "light": #f5f7fa,
+    "lighter": #fafafa,
+    "extra-light": #fafcff,
+    "dark": #ebedf0,
+    "darker": #e6e8eb,
+    "blank": #F2F3F5,
+  )
 );
