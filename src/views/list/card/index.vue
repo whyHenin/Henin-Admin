@@ -1,13 +1,13 @@
 <!--
  * @Author: Chen Xin
- * @Date: 2022-04-17 14:10:09
- * @LastEditTime: 2022-04-17 14:10:43
+ * @Date: 2022-04-19 10:42:05
+ * @LastEditTime: 2022-04-19 10:43:08
  * @LastEditors: Chen Xin
  * @Description: 
- * @FilePath: \Henin-Admin\src\views\template.vue
+ * @FilePath: \Henin-Admin\src\views\list\card\index.vue
 -->
 <template>
-  <div></div>
+  <div>card</div>
 </template>
 
 <script setup lang="ts"></script>

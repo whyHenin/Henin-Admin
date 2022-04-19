@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-12 21:39:15
- * @LastEditTime: 2022-04-19 00:45:58
+ * @LastEditTime: 2022-04-19 10:14:15
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\home\home.vue
@@ -30,4 +30,8 @@ const add = () => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+p {
+  color: $color-primary;
+}
+</style>

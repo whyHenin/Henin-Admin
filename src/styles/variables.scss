@@ -1,19 +1,18 @@
 // 全局sass变量
-@forward "element-plus/theme-chalk/src/common/var.scss"with ($colors: ("primary": ("base": #0097FB,
+@forward "element-plus/theme-chalk/src/common/var.scss"with ($colors: ("primary": ("base": #165DFF,
     ),
-    "success": ("base": #44AC21,
+    "success": ("base": #00B42A,
     ),
-    "warning": ("base": #DB8C09,
+    "warning": ("base": #FADC19,
     ),
-    "danger": ("base": #DB2438,
+    "danger": ("base": #F77234,
     ),
-    "error": ("base": #EE9D28,
+    "error": ("base": #F53F3F,
     ),
-    "info": ("base": #5F6A79,
+    "info": ("base": #86909c,
     ),
   ),
   // $button-padding-horizontal: (
   //   "default": 80px
   // )
 );
-$red: red;

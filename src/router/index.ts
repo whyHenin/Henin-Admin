@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-11 16:09:48
- * @LastEditTime: 2022-04-17 15:20:31
+ * @LastEditTime: 2022-04-19 10:46:46
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\index.ts
@@ -11,6 +11,7 @@ import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 import layout from "@/layout/index.vue"
 import errorRoutes from "./modules/error"
+import listRoutes from "./modules/list"
 
 const routes: RouteRecordRaw[] = [
   {
@@ -28,6 +29,7 @@ const routes: RouteRecordRaw[] = [
         },
       },
       errorRoutes,
+      listRoutes,
     ],
   },
   {

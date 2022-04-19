@@ -6,7 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     '* @Author': Chen Xin
     '* @Description':  * @FilePath: \Henin-Admin\components.d.ts
-    '* @LastEditTime': 2022-04-18 22:19:18
+    '* @LastEditTime': 2022-04-19 09:01:19
     Edit: typeof import('./src/components/edit.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
@@ -14,11 +14,9 @@ declare module 'vue' {
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
-    ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElContainer: typeof import('element-plus/es')['ElContainer']
-    ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     ElDrawer: typeof import('element-plus/es')['ElDrawer']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
@@ -32,15 +30,12 @@ declare module 'vue' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElOption: typeof import('element-plus/es')['ElOption']
-    ElRadio: typeof import('element-plus/es')['ElRadio']
-    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ElSwitch: typeof import('element-plus/es')['ElSwitch']
-    ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     HIcon: typeof import('./src/components/HIcon.vue')['default']
+    IRiAddLine: typeof import('~icons/ri/add-line')['default']
     IRiAlertLine: typeof import('~icons/ri/alert-line')['default']
     IRiApps2Line: typeof import('~icons/ri/apps2-line')['default']
     IRiArrowLeftCircleLine: typeof import('~icons/ri/arrow-left-circle-line')['default']
@@ -48,6 +43,7 @@ declare module 'vue' {
     IRiDashboardLine: typeof import('~icons/ri/dashboard-line')['default']
     IRiFullscreenExitFill: typeof import('~icons/ri/fullscreen-exit-fill')['default']
     IRiFullscreenFill: typeof import('~icons/ri/fullscreen-fill')['default']
+    IRiRefreshLine: typeof import('~icons/ri/refresh-line')['default']
     IRiSearchLine: typeof import('~icons/ri/search-line')['default']
     IRiSettings3Line: typeof import('~icons/ri/settings3-line')['default']
   }

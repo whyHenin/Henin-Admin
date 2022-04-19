@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-11 16:07:49
- * @LastEditTime: 2022-04-19 00:47:00
+ * @LastEditTime: 2022-04-19 14:36:33
  * @LastEditors: Chen Xin
  * @Description: 登录页
  * @FilePath: \Henin-Admin\src\views\login\index.vue
@@ -9,7 +9,7 @@
 <template>
   <div class="container">
     <div class="left">
-      <h1>Henin-Admin中后台管理系统</h1>
+      <h1>Admin中后台管理系统</h1>
       <img src="@/assets/common/login.svg" />
     </div>
     <div class="right">
@@ -19,14 +19,21 @@
             <h1>登录</h1>
           </el-form-item>
           <el-form-item label="账号">
-            <el-input v-model="form.account" size="large" />
+            <el-input v-model="form.account" placeholder="请输入账号" />
           </el-form-item>
           <el-form-item label="密码">
-            <el-input v-model="form.password" type="password" size="large" :show-password="true" />
+            <el-input
+              v-model="form.password"
+              type="password"
+              :show-password="true"
+              placeholder="请输入密码"
+            />
           </el-form-item>
           <el-form-item label="验证码">
             <el-row justify="space-between">
-              <el-col :span="17"><el-input v-model="form.captcha" size="large" /></el-col>
+              <el-col :span="17"
+                ><el-input v-model="form.captcha" placeholder="请输入验证码"
+              /></el-col>
               <el-col :span="7"><img :src="captcha" @click="getCaptcha" /> </el-col>
             </el-row>
           </el-form-item>
@@ -94,10 +101,10 @@ onMounted(() => {
       font-size: 36px;
     }
     img {
-      top: 30%;
-      left: 30%;
+      top: 25%;
+      left: 25%;
       position: absolute;
-      width: 750px;
+      width: 40vw;
     }
   }
   .right {
@@ -106,10 +113,10 @@ onMounted(() => {
     position: relative;
     .login {
       position: absolute;
-      top: 35%;
+      top: 30%;
       left: 10%;
-      width: 350px;
-      height: 500px;
+      width: 20vw;
+      height: 50vh;
       h1 {
         font-size: 36px;
         color: #272e3b;

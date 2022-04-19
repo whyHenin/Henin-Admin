@@ -1,8 +1,16 @@
 // nprogress 进度条样式
 #nprogress .bar {
-  background: linear-gradient(138deg, #B181FF -3%, #B181FF -3%, #820FC9 44%, #5314D8 86%, #5314D8 86%);
+  background: linear-gradient(
+    138deg,
+    #b181ff -3%,
+    #b181ff -3%,
+    #820fc9 44%,
+    #5314d8 86%,
+    #5314d8 86%
+  );
   height: 3px;
 }
+// header小图标样式
 .header-icon {
   height: 100%;
   padding: 0 10px;
@@ -11,10 +19,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .el-icon{
+  .el-icon {
     font-size: 24px;
   }
   &:hover {
     background-color: #f1f1f1;
   }
+}
+// 通用标题样式
+.common-title {
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: #1d2129;
 }

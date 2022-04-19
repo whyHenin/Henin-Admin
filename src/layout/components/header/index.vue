@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 13:21:54
- * @LastEditTime: 2022-04-19 00:47:49
+ * @LastEditTime: 2022-04-19 10:10:44
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\index.vue
@@ -14,6 +14,8 @@
   <breadcrumb />
   <!-- 分割 -->
   <div class="divier"></div>
+  <!-- 刷新 -->
+  <reFresh />
   <!-- 全屏显示 -->
   <fullScreen />
   <!-- 搜索 -->
@@ -31,6 +33,7 @@ import fullScreen from "./fullScreen.vue"
 import search from "./search.vue"
 import setting from "./setting.vue"
 import user from "./user.vue"
+import reFresh from "./reFresh.vue"
 </script>
 
 <style lang="scss" scoped>
