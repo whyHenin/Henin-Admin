@@ -1,52 +1,46 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:41:59
- * @LastEditTime: 2022-04-20 08:53:28
+ * @LastEditTime: 2022-04-21 00:43:02
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\table\index.vue
 -->
 <template>
-  <p class="common-title">查询表格</p>
-  <!-- 搜索表格 -->
-  <searchForm />
-  <!-- 操作区 -->
-  <operation />
-  <!-- 表格 -->
-  <div class="table-body">
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="date" label="Date" width="180" />
-      <el-table-column prop="name" label="Name" width="180" />
-      <el-table-column prop="address" label="Address" />
-    </el-table>
-  </div>
+  <breadcrumb />
+  <!-- 卡片区 -->
+  <a-card :bordered="false">
+    <template #title> 表格列表 </template>
+    Card content
+    <br />
+    Card content
+  </a-card>
 </template>
 
 <script setup lang="ts">
-import searchForm from "./searchForm.vue"
-import operation from "./operation.vue"
-const tableData = [
-  {
-    date: "2016-05-03",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-02",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-04",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-  {
-    date: "2016-05-01",
-    name: "Tom",
-    address: "No. 189, Grove St, Los Angeles",
-  },
-]
+import breadcrumb from "@/components/breadcrumb.vue"
+// import searchForm from "./searchForm.vue"
+// import operation from "./operation.vue"
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.arco-card {
+  border-radius: 4px;
+  .arco-card-header {
+    flex: 1;
+    color: var(--color-text-1);
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    .arco-card-header-title {
+      font-size: 16px;
+      line-height: 16px;
+    }
+  }
+}
+.arco-card-size-medium .arco-card-header {
+  height: 46px;
+  padding: 20px 20px;
+}
+</style>

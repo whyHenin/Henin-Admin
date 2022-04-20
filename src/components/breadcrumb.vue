@@ -1,10 +1,10 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 14:08:38
- * @LastEditTime: 2022-04-20 14:52:33
+ * @LastEditTime: 2022-04-21 00:22:05
  * @LastEditors: Chen Xin
  * @Description: 
- * @FilePath: \Henin-Admin\src\layout\components\header\breadcrumb.vue
+ * @FilePath: \Henin-Admin\src\components\breadcrumb.vue
 -->
 <template>
   <a-breadcrumb>
@@ -25,4 +25,8 @@ const routes = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.arco-breadcrumb {
+  margin: 16px 0;
+}
+</style>
