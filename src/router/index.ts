@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-11 16:09:48
- * @LastEditTime: 2022-04-19 10:46:46
+ * @LastEditTime: 2022-04-20 15:13:56
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\index.ts
@@ -10,6 +10,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router"
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 import layout from "@/layout/index.vue"
+import login from "@/views/login/index.vue"
 import errorRoutes from "./modules/error"
 import listRoutes from "./modules/list"
 

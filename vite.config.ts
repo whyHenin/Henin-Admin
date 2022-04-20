@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-17 19:32:06
+ * @LastEditTime: 2022-04-20 15:04:39
  * @LastEditors: Chen Xin
  * @Description: config of vite
  * @FilePath: \Henin-Admin\vite.config.ts
@@ -12,7 +12,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 import { resolve } from "path"
 import AutoImport from "unplugin-auto-import/vite"
 import Components from "unplugin-vue-components/vite"
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
+import { ArcoResolver } from "unplugin-vue-components/resolvers"
 import Icons from "unplugin-icons/vite"
 import IconsResolver from "unplugin-icons/resolver"
 
@@ -22,19 +22,10 @@ export default defineConfig({
     vue(),
     vueJsx(),
     AutoImport({
-      resolvers: [
-        ElementPlusResolver({
-          importStyle: "sass",
-        }),
-      ],
+      resolvers: [ArcoResolver()],
     }),
     Components({
-      resolvers: [
-        IconsResolver(),
-        ElementPlusResolver({
-          importStyle: "sass",
-        }),
-      ],
+      resolvers: [IconsResolver()],
     }),
     Icons({ autoInstall: true }),
   ],

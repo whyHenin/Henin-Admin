@@ -1,16 +1,23 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-12 21:39:15
- * @LastEditTime: 2022-04-19 10:14:15
+ * @LastEditTime: 2022-04-20 13:41:52
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\home\home.vue
 -->
 <template>
-  <el-button type="" @click="$router.push('/login')">去login页</el-button>
+  <a-button @click="$router.push('/login')">去login页</a-button>
   <p>login的数据：{{ userStore.name }}</p>
   <p>test:{{ test }}</p>
-  <el-button type="" @click="add">增加test</el-button>
+  <a-button @click="add">增加test</a-button>
+  <a-button type="primary">
+    <template #icon>
+      <icon-caret-up />
+    </template>
+    <!-- Use the default slot to avoid extra spaces -->
+    <template #default>Daete</template>
+  </a-button>
 </template>
 
 <script lang="ts" setup>
@@ -30,8 +37,4 @@ const add = () => {
 }
 </script>
 
-<style lang="scss" scoped>
-p {
-  color: $color-primary;
-}
-</style>
+<style lang="scss" scoped></style>

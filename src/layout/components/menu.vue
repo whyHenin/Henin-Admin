@@ -1,55 +1,43 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 10:20:01
- * @LastEditTime: 2022-04-19 10:47:40
+ * @LastEditTime: 2022-04-20 18:12:27
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\menu.vue
 -->
 <template>
-  <el-menu
-    class="el-menu-vertical-demo"
-    default-active="1"
-    router
-    unique-opened
-    :collapse="pageStore.isCollapse"
+  <a-menu
+    :default-open-keys="['0']"
+    :default-selected-keys="['0_2']"
+    breakpoint="xl"
+    accordion
+    :level-indent="30"
   >
-    <el-sub-menu index="1">
-      <template #title>
-        <el-icon>
-          <i-ri-dashboard-line />
-        </el-icon>
-        <span>首页</span>
-      </template>
-      <el-menu-item index="/">分析页</el-menu-item>
-      <el-menu-item index="/da">工作台</el-menu-item>
-    </el-sub-menu>
-    <el-sub-menu index="2">
-      <template #title>
-        <el-icon>
-          <i-ri-apps-2-line />
-        </el-icon>
-        <span>功能展示</span>
-      </template>
-      <el-menu-item index="/list/table">查询表格</el-menu-item>
-      <el-menu-item index="/list/card">卡片列表</el-menu-item>
-      <el-sub-menu index="1-4">
-        <template #title>选项4</template>
-        <el-menu-item index="/">选项4-1</el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-    <el-sub-menu index="3">
-      <template #title>
-        <el-icon>
-          <i-ri-alert-line />
-        </el-icon>
-        <span>错误页展示</span>
-      </template>
-      <el-menu-item index="/error/403">403</el-menu-item>
-      <el-menu-item index="/error/404">404</el-menu-item>
-      <el-menu-item index="/error/500">500</el-menu-item>
-    </el-sub-menu>
-  </el-menu>
+    <a-sub-menu key="0">
+      <template #icon><icon-apps></icon-apps></template>
+      <template #title>首页</template>
+      <a-menu-item key="0_0">工作台</a-menu-item>
+      <a-menu-item key="0_1">流量板</a-menu-item>
+    </a-sub-menu>
+    <a-sub-menu key="1">
+      <template #icon><icon-bulb></icon-bulb></template>
+      <template #title>功能展示</template>
+      <a-menu-item key="1_0">表格展示</a-menu-item>
+      <a-menu-item key="1_1">卡片展示</a-menu-item>
+      <a-sub-menu key="1_2" title="Navigation 4">
+        <a-menu-item key="1_2_0">Menu 1</a-menu-item>
+        <a-menu-item key="1_2_1">Menu 2</a-menu-item>
+      </a-sub-menu>
+    </a-sub-menu>
+    <a-sub-menu key="2">
+      <template #icon><icon-bug></icon-bug></template>
+      <template #title>错误页展示</template>
+      <a-menu-item key="2_0">403</a-menu-item>
+      <a-menu-item key="2_1">404</a-menu-item>
+      <a-menu-item key="2_2">500</a-menu-item>
+    </a-sub-menu>
+  </a-menu>
 </template>
 
 <script setup lang="ts">
@@ -57,4 +45,8 @@ import { usePageStore } from "@/store/page"
 const pageStore = usePageStore()
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.arco-menu {
+  height: 100%;
+}
+</style>

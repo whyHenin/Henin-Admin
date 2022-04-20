@@ -1,21 +1,20 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 14:08:38
- * @LastEditTime: 2022-04-19 00:38:59
+ * @LastEditTime: 2022-04-20 14:52:33
  * @LastEditors: Chen Xin
  * @Description: 
- * @FilePath: \Henin-Admin\src\layout\components\header\Breadcrumb.vue
+ * @FilePath: \Henin-Admin\src\layout\components\header\breadcrumb.vue
 -->
 <template>
-  <el-breadcrumb :separator-icon="ArrowRight">
-    <el-breadcrumb-item v-for="(item, index) in routes" :key="index">
-      {{ item.meta.title }}</el-breadcrumb-item
+  <a-breadcrumb>
+    <a-breadcrumb-item v-for="(item, index) in routes" :key="index">
+      {{ item.meta.title }}</a-breadcrumb-item
     >
-  </el-breadcrumb>
+  </a-breadcrumb>
 </template>
 
 <script setup lang="ts">
-import { ArrowRight } from "@element-plus/icons-vue"
 import { useRouter } from "vue-router"
 import { computed } from "vue"
 const router = useRouter()

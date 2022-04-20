@@ -1,19 +1,15 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 19:22:21
- * @LastEditTime: 2022-04-19 11:34:11
+ * @LastEditTime: 2022-04-20 16:40:26
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\search.vue
 -->
 <template>
-  <el-tooltip effect="dark" content="搜索" placement="bottom" :show-after="600">
-    <div class="header-icon">
-      <el-icon>
-        <i-ri-search-line />
-      </el-icon>
-    </div>
-  </el-tooltip>
+  <a-tooltip content="搜索" position="bottom">
+    <a-button shape="circle"><icon-search /></a-button>
+  </a-tooltip>
 </template>
 
 <script setup lang="ts"></script>

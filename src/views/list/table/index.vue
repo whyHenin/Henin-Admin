@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:41:59
- * @LastEditTime: 2022-04-20 00:53:57
+ * @LastEditTime: 2022-04-20 08:53:28
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\table\index.vue
@@ -15,7 +15,7 @@
   <!-- 表格 -->
   <div class="table-body">
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="date" label="Date" width="180" class-name="table-dome" />
+      <el-table-column prop="date" label="Date" width="180" />
       <el-table-column prop="name" label="Name" width="180" />
       <el-table-column prop="address" label="Address" />
     </el-table>
