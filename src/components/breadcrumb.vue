@@ -1,13 +1,16 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 14:08:38
- * @LastEditTime: 2022-04-21 00:22:05
+ * @LastEditTime: 2022-04-21 23:11:32
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\components\breadcrumb.vue
 -->
 <template>
   <a-breadcrumb>
+    <a-breadcrumb-item>
+      <icon-home />
+    </a-breadcrumb-item>
     <a-breadcrumb-item v-for="(item, index) in routes" :key="index">
       {{ item.meta.title }}</a-breadcrumb-item
     >

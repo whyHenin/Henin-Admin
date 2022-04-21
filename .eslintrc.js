@@ -5,6 +5,15 @@ module.exports = {
     node: true,
     es2021: true,
   },
+  globals: {
+    // script setup
+    defineProps: "readonly",
+    defineEmits: "readonly",
+    defineExpose: "readonly",
+    withDefaults: "readonly",
+    // arco
+    $modal: "readonly",
+  },
   parser: "vue-eslint-parser",
   extends: [
     "eslint:recommended",
@@ -150,11 +159,5 @@ module.exports = {
     "no-extra-boolean-cast": "warn",
     "no-case-declarations": "warn",
     "no-async-promise-executor": "warn",
-  },
-  globals: {
-    defineProps: "readonly",
-    defineEmits: "readonly",
-    defineExpose: "readonly",
-    withDefaults: "readonly",
   },
 }

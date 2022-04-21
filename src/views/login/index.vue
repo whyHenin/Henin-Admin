@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-20 15:00:35
- * @LastEditTime: 2022-04-20 23:21:34
+ * @LastEditTime: 2022-04-21 20:40:43
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\login\index.vue
@@ -26,7 +26,7 @@
             ></a-input-password>
           </a-form-item>
           <a-form-item field="captcha" hide-label>
-            <a-row :gutter="20">
+            <a-row :gutter="15">
               <a-col :span="14"
                 ><a-input v-model="form.captcha" placeholder="验证码"
                   ><template #prefix> <icon-image /> </template></a-input

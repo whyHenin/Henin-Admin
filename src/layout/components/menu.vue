@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 10:20:01
- * @LastEditTime: 2022-04-21 09:56:36
+ * @LastEditTime: 2022-04-22 00:16:52
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\menu.vue
@@ -15,13 +15,13 @@
     :level-indent="30"
   >
     <a-sub-menu key="0">
-      <template #icon><icon-apps></icon-apps></template>
+      <template #icon><icon-dashboard /></template>
       <template #title>首页</template>
       <a-menu-item key="0_0">工作台</a-menu-item>
       <a-menu-item key="0_1">流量板</a-menu-item>
     </a-sub-menu>
     <a-sub-menu key="1">
-      <template #icon><icon-bulb></icon-bulb></template>
+      <template #icon><icon-list /></template>
       <template #title>功能展示</template>
       <a-menu-item key="1_0">表格展示</a-menu-item>
       <a-menu-item key="1_1">卡片展示</a-menu-item>

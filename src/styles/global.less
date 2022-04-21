@@ -40,15 +40,23 @@
 .arco-menu {
   height: 100%;
 }
-.general-card {
+.arco-card {
+  height: 100%;
   border-radius: 4px;
+}
+.general-card {
+  border-radius: 4px !important;
   border: none;
-  & > .arco-card-header {
-    height: auto;
-    padding: 20px;
+  .arco-card-header {
+    height: auto !important;
+    padding: 20px !important;
     border: none;
+    .arco-card-header-title {
+      height: 16px;
+      line-height: 16px;
+    }
   }
-  & > .arco-card-body {
-    padding: 0 20px 20px 20px;
+  > .arco-card-body {
+    padding: 0 20px 20px 20px !important;
   }
 }
