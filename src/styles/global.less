@@ -1,0 +1,54 @@
+// nprogress 进度条样式
+#nprogress .bar {
+  background: linear-gradient(
+    138deg,
+    #b181ff -3%,
+    #b181ff -3%,
+    #820fc9 44%,
+    #5314d8 86%,
+    #5314d8 86%
+  );
+  height: 3px;
+}
+.arco-layout {
+  min-height: 100vh;
+  overflow-y: hidden;
+  transition: padding 0.2s cubic-bezier(0.34, 0.69, 0.1, 1);
+  background-color: var(--color-bg-3);
+  .arco-layout-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: var(--color-bg-2);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .arco-layout-sider {
+    width: 100px;
+    padding-top: 60px;
+  }
+  .arco-layout-content {
+    padding: 20px;
+    padding-top: 60px;
+    background-color: var(--color-fill-2);
+  }
+}
+.arco-menu {
+  height: 100%;
+}
+.general-card {
+  border-radius: 4px;
+  border: none;
+  & > .arco-card-header {
+    height: auto;
+    padding: 20px;
+    border: none;
+  }
+  & > .arco-card-body {
+    padding: 0 20px 20px 20px;
+  }
+}

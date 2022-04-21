@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 20:09:33
- * @LastEditTime: 2022-04-20 17:23:29
+ * @LastEditTime: 2022-04-21 09:57:08
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\user.vue
@@ -19,11 +19,4 @@
 
 <script setup lang="ts"></script>
 
-<style lang="scss" scoped>
-.header {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-  cursor: pointer;
-}
-</style>
+<style lang="scss" scoped></style>

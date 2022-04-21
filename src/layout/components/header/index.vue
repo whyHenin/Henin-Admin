@@ -1,15 +1,13 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 13:21:54
- * @LastEditTime: 2022-04-21 00:21:15
+ * @LastEditTime: 2022-04-21 09:04:07
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\index.vue
 -->
 <template>
   <div class="logo">Henin-Admin</div>
-  <!-- 分割 -->
-  <div class="divier"></div>
   <!-- 刷新 -->
   <reFresh />
   <!-- 全屏显示 -->
@@ -37,9 +35,6 @@ import toggleDark from "./toggleDark.vue"
 .logo {
   width: 200px;
   height: 100%;
-  background-color: #f1f2f3;
-}
-.divier {
-  margin-left: auto;
+  background-color: var(--color-fill-2);
 }
 </style>

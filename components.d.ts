@@ -5,11 +5,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Breadcrumb: typeof import('./src/components/breadcrumb.vue')['default']
-    Edit: typeof import('./src/components/edit.vue')['default']
-    IRiAddLine: typeof import('~icons/ri/add-line')['default']
-    IRiDownload2Line: typeof import('~icons/ri/download2-line')['default']
-    IRiRefreshLine: typeof import('~icons/ri/refresh-line')['default']
-    IRiSearchLine: typeof import('~icons/ri/search-line')['default']
   }
 }
 

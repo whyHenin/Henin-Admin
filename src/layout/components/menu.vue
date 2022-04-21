@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 10:20:01
- * @LastEditTime: 2022-04-20 18:12:27
+ * @LastEditTime: 2022-04-21 09:56:36
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\menu.vue
@@ -45,8 +45,4 @@ import { usePageStore } from "@/store/page"
 const pageStore = usePageStore()
 </script>
 
-<style lang="scss" scoped>
-.arco-menu {
-  height: 100%;
-}
-</style>
+<style lang="scss" scoped></style>
