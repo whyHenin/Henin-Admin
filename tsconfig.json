@@ -16,7 +16,9 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client", "node"] //启用vite环境变量定义补充
+    "types": ["vite/client", "node"], //启用vite环境变量定义补充
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  // 编译器默认排除的编译文件
+  "exclude": ["node_modules"]
 }

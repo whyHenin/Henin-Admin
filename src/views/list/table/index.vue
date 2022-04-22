@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:41:59
- * @LastEditTime: 2022-04-21 22:55:48
+ * @LastEditTime: 2022-04-22 11:46:44
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\table\index.vue
@@ -19,27 +19,22 @@
           label-align="left"
         >
           <a-row :gutter="16">
-            <a-col :span="6">
+            <a-col :span="8">
               <a-form-item field="name" label="查询姓名">
                 <a-input v-model="formModel.name" placeholder="请输入" />
               </a-form-item>
             </a-col>
-            <a-col :span="6">
+            <a-col :span="8">
               <a-form-item field="name" label="查询姓名">
                 <a-input v-model="formModel.name" placeholder="请输入" />
               </a-form-item>
             </a-col>
-            <a-col :span="6">
+            <a-col :span="8">
               <a-form-item field="name" label="查询姓名">
                 <a-input v-model="formModel.name" placeholder="请输入" />
               </a-form-item>
             </a-col>
-            <a-col :span="6">
-              <a-form-item field="name" label="查询姓名">
-                <a-input v-model="formModel.name" placeholder="请输入" />
-              </a-form-item>
-            </a-col>
-            <a-col :span="6">
+            <a-col :span="8">
               <a-form-item field="name" label="查询姓名">
                 <a-select placeholder="Please select ...">
                   <a-option
@@ -51,21 +46,16 @@
                 </a-select>
               </a-form-item>
             </a-col>
-            <a-col :span="6">
+            <a-col :span="8">
               <a-form-item field="name" label="查询姓名">
                 <a-select placeholder="Please select ..." multiple :max-tag-count="2" allow-clear>
                   <a-option v-for="(item, index) of data" :key="index">{{ item.label }}</a-option>
                 </a-select>
               </a-form-item>
             </a-col>
-            <a-col :span="6">
+            <a-col :span="8">
               <a-form-item field="name" label="查询姓名">
                 <a-range-picker />
-              </a-form-item>
-            </a-col>
-            <a-col :span="6">
-              <a-form-item field="name" label="查询姓名">
-                <a-input v-model="formModel.name" placeholder="请输入" />
               </a-form-item>
             </a-col>
           </a-row>
@@ -183,7 +173,6 @@
 
 <script setup lang="ts">
 import breadcrumb from "@/components/breadcrumb.vue"
-import { reactive, ref } from "vue"
 const formModel = reactive({
   name: "",
   age: "",
@@ -207,7 +196,6 @@ const data = reactive([
     value: "4",
   },
 ])
-const alignLeft = ref(false)
 const tableData = reactive([
   {
     key: "1",

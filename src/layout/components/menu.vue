@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 10:20:01
- * @LastEditTime: 2022-04-22 00:16:52
+ * @LastEditTime: 2022-04-22 17:48:35
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\menu.vue
@@ -9,40 +9,28 @@
 <template>
   <a-menu
     :default-open-keys="['0']"
-    :default-selected-keys="['0_2']"
-    breakpoint="xl"
+    :default-selected-keys="['0_0']"
+    breakpoint="lg"
     accordion
+    auto-scroll-into-view
     :level-indent="30"
+    @menu-item-click="toPage"
+    @sub-menu-click="toPage"
   >
-    <a-sub-menu key="0">
-      <template #icon><icon-dashboard /></template>
-      <template #title>首页</template>
-      <a-menu-item key="0_0">工作台</a-menu-item>
-      <a-menu-item key="0_1">流量板</a-menu-item>
-    </a-sub-menu>
-    <a-sub-menu key="1">
-      <template #icon><icon-list /></template>
-      <template #title>功能展示</template>
-      <a-menu-item key="1_0">表格展示</a-menu-item>
-      <a-menu-item key="1_1">卡片展示</a-menu-item>
-      <a-sub-menu key="1_2" title="Navigation 4">
-        <a-menu-item key="1_2_0">Menu 1</a-menu-item>
-        <a-menu-item key="1_2_1">Menu 2</a-menu-item>
-      </a-sub-menu>
-    </a-sub-menu>
-    <a-sub-menu key="2">
-      <template #icon><icon-bug></icon-bug></template>
-      <template #title>错误页展示</template>
-      <a-menu-item key="2_0">403</a-menu-item>
-      <a-menu-item key="2_1">404</a-menu-item>
-      <a-menu-item key="2_2">500</a-menu-item>
+    <a-sub-menu v-for="item in routerList" :key="item.path">
+      <template #icon><icon-common /></template>
+      <template #title>{{ item.meta?.title }}</template>
+      <a-menu-item v-for="i in item.children" :key="i.path">{{ i.meta?.title }}</a-menu-item>
     </a-sub-menu>
   </a-menu>
 </template>
 
 <script setup lang="ts">
-import { usePageStore } from "@/store/page"
-const pageStore = usePageStore()
+const router = useRouter()
+const routerList = router.options.routes[0].children
+const toPage = (key: string) => {
+  router.push(key)
+}
 </script>
 
 <style lang="scss" scoped></style>

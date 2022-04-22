@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 13:21:54
- * @LastEditTime: 2022-04-21 22:16:50
+ * @LastEditTime: 2022-04-22 16:52:48
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\index.vue
@@ -13,7 +13,7 @@
       <!-- 刷新 -->
       <li>
         <a-tooltip content="刷新" position="bottom">
-          <a-button shape="circle" type="outline"><icon-refresh /></a-button>
+          <a-button shape="circle" type="outline" @click="$router.go(0)"><icon-refresh /></a-button>
         </a-tooltip>
       </li>
       <!-- 全屏显示 -->
@@ -73,7 +73,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
 const isFullScreen = ref(false)
 const toggleFullScreen = () => {
   if (!document.fullscreenElement) {
