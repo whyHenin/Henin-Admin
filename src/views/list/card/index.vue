@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 21:05:56
- * @LastEditTime: 2022-04-22 13:52:35
+ * @LastEditTime: 2022-04-22 23:32:32
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\card\index.vue
@@ -52,7 +52,7 @@
       </a-tab-pane>
       <a-tab-pane key="2" title="部分1">
         Content of Tab Panel 2
-        <testCard />
+        <testCard type="icon-drag-arrow" />
       </a-tab-pane>
       <a-tab-pane key="3" title="部分2"> Content of Tab Panel 3 </a-tab-pane>
       <template #extra>
@@ -64,7 +64,6 @@
 
 <script setup lang="ts">
 import breadcrumb from "@/components/breadcrumb.vue"
-import testCard from "./testCard.vue"
 </script>
 
 <style lang="less" scoped>

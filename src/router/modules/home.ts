@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-22 16:27:43
- * @LastEditTime: 2022-04-22 16:31:37
+ * @LastEditTime: 2022-04-22 23:34:10
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\modules\home.ts
@@ -13,7 +13,8 @@ const routes: RouteRecordRaw = {
   redirect: "/home/dashboard",
   component: RouterView,
   meta: {
-    title: "列表页",
+    title: "首页",
+    icon: "icon-home",
   },
   children: [
     {
@@ -21,7 +22,7 @@ const routes: RouteRecordRaw = {
       name: "dashboard",
       component: () => import("@/views/home/dashboard.vue"),
       meta: {
-        title: "首页",
+        title: "仪表盘",
       },
     },
   ],

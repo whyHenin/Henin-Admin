@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:43:24
- * @LastEditTime: 2022-04-22 16:20:01
+ * @LastEditTime: 2022-04-22 23:31:27
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\modules\list.ts
@@ -14,6 +14,7 @@ const routes: RouteRecordRaw = {
   component: RouterView,
   meta: {
     title: "列表页",
+    icon: "icon-list",
   },
   children: [
     {

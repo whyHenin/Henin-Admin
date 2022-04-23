@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:41:59
- * @LastEditTime: 2022-04-22 11:46:44
+ * @LastEditTime: 2022-04-23 23:53:39
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\table\index.vue
@@ -114,6 +114,7 @@
       :data="tableData"
       :bordered="false"
       :loading="false"
+      :columns="columns"
       page-position="bl"
       :filter-icon-align-left="false"
       ><template #columns>
@@ -135,7 +136,7 @@
                 value: '30000',
               },
             ],
-            filter: (value, record) => record.salary > value,
+            filter: (value:string[], record) => record.salary > value,
             multiple: true,
           }"
         ></a-table-column>
@@ -147,22 +148,22 @@
               <a-button
                 type="text"
                 size="mini"
-                @click="$modal.info({ title: 'Name', content: record.name })"
+                @click="Modal.info({ title: 'Name', content: record.name })"
                 >详情</a-button
               >
               <a-button
                 status="success"
                 size="mini"
-                @click="$modal.info({ title: 'Name', content: record.name })"
+                @click="Modal.info({ title: 'Name', content: record.name })"
                 >编辑</a-button
               >
-              <a-button
-                type="primary"
-                status="danger"
-                size="mini"
-                @click="$modal.info({ title: 'Name', content: record.name })"
-                >删除</a-button
+              <a-popconfirm
+                content="确定删除该条记录吗？"
+                position="tr"
+                @ok="Modal.info({ title: 'Name', content: record.name })"
               >
+                <a-button type="primary" status="danger" size="mini">删除</a-button>
+              </a-popconfirm>
             </a-space>
           </template>
         </a-table-column>
@@ -173,6 +174,46 @@
 
 <script setup lang="ts">
 import breadcrumb from "@/components/breadcrumb.vue"
+import { Modal, TableData } from "@arco-design/web-vue"
+const columns = [
+  {
+    title: "Name",
+    dataIndex: "name",
+  },
+  {
+    title: "Salary",
+    dataIndex: "salary",
+    sortable: {
+      sortDirections: ["ascend"],
+    },
+    filterable: {
+      filters: [
+        {
+          text: "> 20000",
+          value: "20000",
+        },
+        {
+          text: "> 30000",
+          value: "30000",
+        },
+      ],
+      filter: (value: string[], record: TableData) => record.salary > value,
+      multiple: true,
+    },
+  },
+  {
+    title: "Address",
+    dataIndex: "address",
+  },
+  {
+    title: "Email",
+    dataIndex: "email",
+  },
+  {
+    title: "Optional",
+    slotName: "optional",
+  },
+]
 const formModel = reactive({
   name: "",
   age: "",
@@ -289,6 +330,7 @@ const tableData = reactive([
     email: "william.smith@example.com",
   },
 ])
+const filter = (value: string[], record: any) => record.salary > value
 </script>
 
 <style lang="less" scoped></style>

@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-20 15:00:35
- * @LastEditTime: 2022-04-21 20:40:43
+ * @LastEditTime: 2022-04-23 22:26:52
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\login\index.vue
@@ -14,21 +14,28 @@
         <div class="form-title">登录 Arco Design Pro</div>
         <div class="form-sub-title">登录 Arco Design Pro</div>
         <div class="form-msg">{{ formMsg }}</div>
-        <a-form :model="form" layout="horizontal" auto-label-width>
+        <a-form
+          ref="form"
+          layout="horizontal"
+          auto-label-width
+          :rules="rules"
+          :model="ruleForm"
+          @submit="dologin"
+        >
           <a-form-item field="name" hide-label>
-            <a-input v-model="form.name" placeholder="账号"
+            <a-input v-model="ruleForm.name" placeholder="账号"
               ><template #prefix> <icon-user /> </template
             ></a-input>
           </a-form-item>
           <a-form-item field="password" hide-label>
-            <a-input-password v-model="form.password" placeholder="密码" allow-clear
+            <a-input-password v-model="ruleForm.password" placeholder="密码" allow-clear
               ><template #prefix> <icon-lock /> </template
             ></a-input-password>
           </a-form-item>
           <a-form-item field="captcha" hide-label>
             <a-row :gutter="15">
               <a-col :span="14"
-                ><a-input v-model="form.captcha" placeholder="验证码"
+                ><a-input v-model="ruleForm.captcha" placeholder="验证码"
                   ><template #prefix> <icon-image /> </template></a-input
               ></a-col>
               <a-col :span="6"> <img class="captchaImg" :src="captchaUrl" alt="" /></a-col>
@@ -40,10 +47,10 @@
             </a-row>
           </a-form-item>
           <a-form-item hide-label>
-            <a-button type="primary" long @click="login">登录</a-button>
+            <a-button type="primary" long html-type="submit">登录</a-button>
           </a-form-item>
           <a-form-item hide-label>
-            <a-button type="text" long @click="reg">立即注册</a-button>
+            <a-button type="text" long @click="doReg">立即注册</a-button>
           </a-form-item>
         </a-form>
       </div>
@@ -52,27 +59,82 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, onMounted } from "vue"
-import { useRouter } from "vue-router"
 import axios from "axios"
+import { login } from "@/api/login"
+import { useUserStore } from "@/store/user"
 const router = useRouter()
-const form = reactive({
+const route = useRoute()
+const userStore = useUserStore()
+// 表单数据对象
+const ruleForm = reactive({
   name: "",
   password: "",
   captcha: "",
 })
+// 表单验证规则
+const rules = ref({
+  name: [
+    {
+      required: true,
+      message: "请输入账号",
+      trigger: "blur",
+    },
+  ],
+  password: [
+    {
+      required: true,
+      message: "请输入密码",
+      trigger: "blur",
+    },
+  ],
+  captcha: [
+    {
+      required: true,
+      message: "请输入验证码",
+      trigger: "blur",
+    },
+  ],
+})
+// 提示信息
 const formMsg = ref("")
+// 验证码图片
 const captchaUrl = ref("")
+// 获取验证码
 const getCaptcha = () => {
   axios.get("https://www.hfzhishidai.com/marketServer/sys/getGifCode").then((res) => {
     captchaUrl.value = res.data.data.image
   })
 }
-const login = () => {
-  router.push("/")
+// 表单实例
+const form = ref(null)
+// 登录
+const dologin = async () => {
+  await login({ ...ruleForm }).then((res) => {
+    let redirect = route.query.redirect
+    if (typeof redirect !== "string") {
+      redirect = "/"
+    }
+    if (res.code === 200) {
+      userStore.updateUser(res.data)
+      setTimeout(() => {
+        router.replace(redirect)
+      }, 3000)
+    } else {
+      formMsg.value = res.msg
+      getCaptcha()
+    }
+  })
 }
-const reg = () => {
-  document.body.setAttribute("arco-theme", "dark")
+// 注册
+const doReg = () => {
+  form.value.validate((valid: any) => {
+    if (valid) {
+      // console.log("验证不通过")
+    } else {
+      // console.log("通过!!")
+      return false
+    }
+  })
 }
 onMounted(() => {
   getCaptcha()

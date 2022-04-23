@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-17 11:13:23
- * @LastEditTime: 2022-04-22 16:19:51
+ * @LastEditTime: 2022-04-22 23:29:47
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\modules\error.ts
@@ -14,6 +14,7 @@ const routes: RouteRecordRaw = {
   redirect: "/error/404",
   meta: {
     title: "错误页面",
+    icon: "icon-bug",
   },
   children: [
     {

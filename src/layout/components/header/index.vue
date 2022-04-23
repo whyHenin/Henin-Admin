@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 13:21:54
- * @LastEditTime: 2022-04-22 16:52:48
+ * @LastEditTime: 2022-04-23 21:48:49
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\index.vue
@@ -44,17 +44,14 @@
       <li>
         <a-button shape="circle" type="outline" @click="handleDrawer"><icon-settings /></a-button>
         <a-drawer
-          :visible="visible"
+          :visible="settingVisible"
           unmount-on-close
           :footer="false"
           @ok="handleOk"
           @cancel="handleCancel"
         >
           <template #title> 系统配置 </template>
-          <div>
-            You can cusstomize modal body text by the current situation. This modal will be closed
-            immediately once you press the OK button.
-          </div>
+          <div>这里是系统配置</div>
         </a-drawer>
       </li>
       <!-- 用户头像 -->
@@ -64,7 +61,7 @@
           <template #content>
             <a-doption><icon-user />个人信息</a-doption>
             <a-doption><icon-settings />个人设置</a-doption>
-            <a-doption><icon-import />退出系统</a-doption>
+            <a-doption @click="handleLogOut"><icon-import />退出系统</a-doption>
           </template>
         </a-dropdown>
       </li>
@@ -73,6 +70,11 @@
 </template>
 
 <script setup lang="ts">
+import { Message, Modal } from "@arco-design/web-vue"
+import { storageLocal } from "@/utils/storage"
+const router = useRouter()
+
+// 全屏显示功能
 const isFullScreen = ref(false)
 const toggleFullScreen = () => {
   if (!document.fullscreenElement) {
@@ -83,6 +85,7 @@ const toggleFullScreen = () => {
     document.exitFullscreen()
   }
 }
+// 黑夜模式功能
 const isDark = ref(false)
 const toggleDarkMode = () => {
   if (isDark.value) {
@@ -93,15 +96,29 @@ const toggleDarkMode = () => {
     document.body.setAttribute("arco-theme", "dark")
   }
 }
-const visible = ref(false)
+// 设置抽屉组件
+const settingVisible = ref(false)
 const handleDrawer = () => {
-  visible.value = !visible.value
+  settingVisible.value = !settingVisible.value
 }
 const handleOk = () => {
-  visible.value = false
+  settingVisible.value = false
 }
 const handleCancel = () => {
-  visible.value = false
+  settingVisible.value = false
+}
+// 用户头像功能
+const handleLogOut = () => {
+  Modal.warning({
+    title: "退出系统",
+    content: "确定退出系统吗？",
+    hideCancel: false,
+    onOk: () => {
+      storageLocal.clear()
+      Message.success("退出成功")
+      router.replace("/login")
+    },
+  })
 }
 </script>
 

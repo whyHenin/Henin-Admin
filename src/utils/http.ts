@@ -1,15 +1,19 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-12 20:50:10
- * @LastEditTime: 2022-04-17 15:06:23
+ * @LastEditTime: 2022-04-23 23:00:39
  * @LastEditors: Chen Xin
  * @Description:axios请求封装
  * @FilePath: \Henin-Admin\src\utils\http.ts
  */
 //http.ts
+import { Message, Modal } from "@arco-design/web-vue"
 import axios, { AxiosRequestConfig } from "axios"
-import NProgress from "nprogress"
-import "nprogress/nprogress.css"
+import NProgress from "./nprogress"
+import { USER_TOKEN } from "@/utils/constants"
+import { storageLocal } from "@/utils/storage"
+
+const router = useRouter()
 
 // 设置请求头和请求路径
 const request = axios.create({
@@ -24,7 +28,7 @@ const request = axios.create({
 // 请求拦截
 request.interceptors.request.use(
   (config): AxiosRequestConfig<any> => {
-    const token = window.sessionStorage.getItem("token")
+    const token = storageLocal.getItem(USER_TOKEN)
     if (token) {
       //@ts-ignore
       config.headers.token = token
@@ -36,13 +40,39 @@ request.interceptors.request.use(
   },
 )
 // 响应拦截
-request.interceptors.response.use((res) => {
-  if (res.data.code === 111) {
-    sessionStorage.setItem("token", "")
-    // token过期操作
-  }
-  return res
-})
+
+request.interceptors.response.use(
+  (res) => {
+    const status = res.data.status
+
+    //正确情况
+    if (!status || status === 200) {
+      return res
+    }
+
+    // 错误情况
+    if (status === 401) {
+      //清楚登录数据并跳转登录页面
+      Message.error("登录失效，请重新登录")
+      storageLocal.clear()
+      router.push({
+        path: "/login",
+        query: { redirect: router.currentRoute.value.fullPath },
+      })
+      return Promise.reject(res)
+    }
+
+    // 其他错误情况
+    Modal.error({
+      title: "错误",
+      content: res.data.msg || "网络错误,请稍后再试",
+    })
+    return Promise.reject(res.data)
+  },
+  (error) => {
+    return Promise.reject(error)
+  },
+)
 
 interface ResType<T> {
   code: number
