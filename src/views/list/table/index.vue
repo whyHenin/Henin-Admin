@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:41:59
- * @LastEditTime: 2022-04-23 23:53:39
+ * @LastEditTime: 2022-04-24 22:01:43
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\table\index.vue
@@ -64,7 +64,7 @@
       <a-divider style="height: 84px" direction="vertical" />
       <a-col flex="86px" style="text-align: right">
         <a-space direction="vertical" :size="18">
-          <a-button type="primary">
+          <a-button type="primary" @click="handleSearch">
             <template #icon>
               <icon-search />
             </template>
@@ -113,12 +113,12 @@
     <a-table
       :data="tableData"
       :bordered="false"
-      :loading="false"
-      :columns="columns"
+      :loading="loading"
       page-position="bl"
       :filter-icon-align-left="false"
       ><template #columns>
-        <a-table-column title="姓名" data-index="name"></a-table-column>
+        <a-table-column title="姓名" data-index="userName"></a-table-column>
+        <a-table-column title="id" data-index="id"></a-table-column>
         <a-table-column
           title="薪资"
           data-index="salary"
@@ -141,26 +141,28 @@
           }"
         ></a-table-column>
         <a-table-column title="住址" data-index="address"></a-table-column>
-        <a-table-column title="邮件地址" data-index="email"></a-table-column>
+        <a-table-column title="手机号" data-index="phone"></a-table-column>
+        <a-table-column title="邮编" data-index="post"></a-table-column>
+        <a-table-column title="vip" data-index="isVip"></a-table-column>
         <a-table-column title="操作">
           <template #cell="{ record }">
             <a-space>
               <a-button
                 type="text"
                 size="mini"
-                @click="Modal.info({ title: 'Name', content: record.name })"
+                @click="Modal.info({ title: 'Name', content: record.userName })"
                 >详情</a-button
               >
               <a-button
                 status="success"
                 size="mini"
-                @click="Modal.info({ title: 'Name', content: record.name })"
+                @click="Modal.info({ title: 'Name', content: record.userName })"
                 >编辑</a-button
               >
               <a-popconfirm
                 content="确定删除该条记录吗？"
                 position="tr"
-                @ok="Modal.info({ title: 'Name', content: record.name })"
+                @ok="Modal.info({ title: 'Name', content: record.userName })"
               >
                 <a-button type="primary" status="danger" size="mini">删除</a-button>
               </a-popconfirm>
@@ -174,46 +176,8 @@
 
 <script setup lang="ts">
 import breadcrumb from "@/components/breadcrumb.vue"
-import { Modal, TableData } from "@arco-design/web-vue"
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-  },
-  {
-    title: "Salary",
-    dataIndex: "salary",
-    sortable: {
-      sortDirections: ["ascend"],
-    },
-    filterable: {
-      filters: [
-        {
-          text: "> 20000",
-          value: "20000",
-        },
-        {
-          text: "> 30000",
-          value: "30000",
-        },
-      ],
-      filter: (value: string[], record: TableData) => record.salary > value,
-      multiple: true,
-    },
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-  },
-  {
-    title: "Email",
-    dataIndex: "email",
-  },
-  {
-    title: "Optional",
-    slotName: "optional",
-  },
-]
+import { Modal, Message } from "@arco-design/web-vue"
+import { userList } from "@/api/user"
 const formModel = reactive({
   name: "",
   age: "",
@@ -237,100 +201,33 @@ const data = reactive([
     value: "4",
   },
 ])
-const tableData = reactive([
-  {
-    key: "1",
-    name: "Jane Doe",
-    salary: 23000,
-    address: "32 Park Road, London",
-    email: "jane.doe@example.com",
-  },
-  {
-    key: "2",
-    name: "Alisa Ross",
-    salary: 25000,
-    address: "35 Park Road, London",
-    email: "alisa.ross@example.com",
-  },
-  {
-    key: "3",
-    name: "Kevin Sandra",
-    salary: 22000,
-    address: "31 Park Road, London",
-    email: "kevin.sandra@example.com",
-  },
-  {
-    key: "4",
-    name: "Ed Hellen",
-    salary: 17000,
-    address: "42 Park Road, London",
-    email: "ed.hellen@example.com",
-  },
-  {
-    key: "5",
-    name: "William Smith",
-    salary: 27000,
-    address: "62 Park Road, London",
-    email: "william.smith@example.com",
-  },
-  {
-    key: "6",
-    name: "Jane Doe",
-    salary: 23000,
-    address: "32 Park Road, London",
-    email: "jane.doe@example.com",
-  },
-  {
-    key: "7",
-    name: "Alisa Ross",
-    salary: 25000,
-    address: "35 Park Road, London",
-    email: "alisa.ross@example.com",
-  },
-  {
-    key: "8",
-    name: "Kevin Sandra",
-    salary: 22000,
-    address: "31 Park Road, London",
-    email: "kevin.sandra@example.com",
-  },
-  {
-    key: "9",
-    name: "Ed Hellen",
-    salary: 17000,
-    address: "42 Park Road, London",
-    email: "ed.hellen@example.com",
-  },
-  {
-    key: "10",
-    name: "William Smith",
-    salary: 27000,
-    address: "62 Park Road, London",
-    email: "william.smith@example.com",
-  },
-  {
-    key: "11",
-    name: "Kevin Sandra",
-    salary: 22000,
-    address: "31 Park Road, London",
-    email: "kevin.sandra@example.com",
-  },
-  {
-    key: "12",
-    name: "Ed Hellen",
-    salary: 17000,
-    address: "42 Park Road, London",
-    email: "ed.hellen@example.com",
-  },
-  {
-    key: "13",
-    name: "William Smith",
-    salary: 27000,
-    address: "62 Park Road, London",
-    email: "william.smith@example.com",
-  },
-])
-const filter = (value: string[], record: any) => record.salary > value
+const tableData = ref()
+const searchFrom = reactive({
+  size: 10,
+  page: 1,
+  keyWord: "",
+})
+const loading = ref(true)
+const fetchData = () => {
+  loading.value = true
+  userList(searchFrom)
+    .then((res) => {
+      if (res.code === 200) {
+        tableData.value = res.data
+      } else {
+        Message.error(res.msg)
+      }
+    })
+    .finally(() => {
+      loading.value = false
+    })
+}
+const handleSearch = () => {
+  fetchData()
+}
+onMounted(() => {
+  fetchData()
+})
 </script>
 
 <style lang="less" scoped></style>

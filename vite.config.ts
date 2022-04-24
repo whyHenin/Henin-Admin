@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-03-16 09:18:55
- * @LastEditTime: 2022-04-22 10:07:37
+ * @LastEditTime: 2022-04-24 20:23:44
  * @LastEditors: Chen Xin
  * @Description: config of vite
  * @FilePath: \Henin-Admin\vite.config.ts
