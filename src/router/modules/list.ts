@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:43:24
- * @LastEditTime: 2022-04-22 23:31:27
+ * @LastEditTime: 2022-05-07 09:42:30
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\modules\list.ts
@@ -18,7 +18,7 @@ const routes: RouteRecordRaw = {
   },
   children: [
     {
-      path: "table",
+      path: "/list/table",
       name: "table",
       component: () => import("@/views/list/table/index.vue"),
       meta: {
@@ -26,7 +26,7 @@ const routes: RouteRecordRaw = {
       },
     },
     {
-      path: "card",
+      path: "/list/card",
       name: "card",
       component: () => import("@/views/list/card/index.vue"),
       meta: {

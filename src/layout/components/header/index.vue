@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-17 13:21:54
- * @LastEditTime: 2022-04-23 21:48:49
+ * @LastEditTime: 2022-05-07 10:55:48
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\layout\components\header\index.vue
@@ -57,9 +57,15 @@
       <!-- 用户头像 -->
       <li>
         <a-dropdown>
-          <a-avatar src="https://cube.aemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+          <a-avatar
+            ><img
+              :style="{
+                width: '100%',
+              }"
+              :src="userStore.avatar"
+          /></a-avatar>
           <template #content>
-            <a-doption><icon-user />个人信息</a-doption>
+            <a-doption @click="router.push('/user/center')"><icon-user />个人信息</a-doption>
             <a-doption><icon-settings />个人设置</a-doption>
             <a-doption @click="handleLogOut"><icon-import />退出系统</a-doption>
           </template>
@@ -72,6 +78,8 @@
 <script setup lang="ts">
 import { Message, Modal } from "@arco-design/web-vue"
 import { storageLocal } from "@/utils/storage"
+import { useUserStore } from "@/store/user"
+const userStore = useUserStore()
 const router = useRouter()
 
 // 全屏显示功能

@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:41:59
- * @LastEditTime: 2022-04-24 22:01:43
+ * @LastEditTime: 2022-05-06 18:03:20
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\table\index.vue
@@ -13,7 +13,8 @@
     <a-row>
       <a-col :flex="1">
         <a-form
-          :model="formModel"
+          ref="form"
+          :model="searchFrom"
           :label-col-props="{ span: 6 }"
           :wrapper-col-props="{ span: 18 }"
           label-align="left"
@@ -21,22 +22,22 @@
           <a-row :gutter="16">
             <a-col :span="8">
               <a-form-item field="name" label="查询姓名">
-                <a-input v-model="formModel.name" placeholder="请输入" />
+                <a-input v-model="searchFrom.name" placeholder="请输入" />
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item field="name" label="查询姓名">
-                <a-input v-model="formModel.name" placeholder="请输入" />
+              <a-form-item field="age" label="查询年龄">
+                <a-input v-model="searchFrom.age" placeholder="请输入" />
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item field="name" label="查询姓名">
-                <a-input v-model="formModel.name" placeholder="请输入" />
+              <a-form-item field="address" label="查询地址">
+                <a-input v-model="searchFrom.address" placeholder="请输入" />
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item field="name" label="查询姓名">
-                <a-select placeholder="Please select ...">
+              <a-form-item field="test" label="查询位置">
+                <a-select v-model="searchFrom.test" placeholder="Please select ...">
                   <a-option
                     v-for="(item, index) of data"
                     :key="index"
@@ -47,15 +48,21 @@
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item field="name" label="查询姓名">
-                <a-select placeholder="Please select ..." multiple :max-tag-count="2" allow-clear>
+              <a-form-item field="test2" label="查询位置2">
+                <a-select
+                  v-model="searchFrom.test2"
+                  placeholder="Please select ..."
+                  multiple
+                  :max-tag-count="2"
+                  allow-clear
+                >
                   <a-option v-for="(item, index) of data" :key="index">{{ item.label }}</a-option>
                 </a-select>
               </a-form-item>
             </a-col>
             <a-col :span="8">
-              <a-form-item field="name" label="查询姓名">
-                <a-range-picker />
+              <a-form-item field="data" label="查询时间">
+                <a-range-picker v-model="searchFrom.data" />
               </a-form-item>
             </a-col>
           </a-row>
@@ -70,7 +77,7 @@
             </template>
             搜索
           </a-button>
-          <a-button>
+          <a-button @click="$refs.form.resetFields()">
             <template #icon>
               <icon-refresh />
             </template>
@@ -83,7 +90,7 @@
     <a-row style="margin-bottom: 16px">
       <a-col :span="16">
         <a-space>
-          <a-button type="primary">
+          <a-button type="primary" @click="handleNew">
             <template #icon>
               <icon-plus />
             </template>
@@ -114,11 +121,12 @@
       :data="tableData"
       :bordered="false"
       :loading="loading"
-      page-position="bl"
       :filter-icon-align-left="false"
+      :pagination="false"
       ><template #columns>
-        <a-table-column title="姓名" data-index="userName"></a-table-column>
+        <a-table-column title="姓名" data-index="name"></a-table-column>
         <a-table-column title="id" data-index="id"></a-table-column>
+        <a-table-column title="年龄" data-index="age"></a-table-column>
         <a-table-column
           title="薪资"
           data-index="salary"
@@ -136,29 +144,26 @@
                 value: '30000',
               },
             ],
-            filter: (value:string[], record) => record.salary > value,
+            filter: (value:string[], record:any) => record.salary > value,
             multiple: true,
           }"
         ></a-table-column>
         <a-table-column title="住址" data-index="address"></a-table-column>
         <a-table-column title="手机号" data-index="phone"></a-table-column>
         <a-table-column title="邮编" data-index="post"></a-table-column>
-        <a-table-column title="vip" data-index="isVip"></a-table-column>
+        <a-table-column title="会员" data-index="isVip">
+          <template #cell="{ record }">
+            <a-badge
+              :status="record.isVip ? 'success' : 'warning'"
+              :text="record.isVip ? '已开通' : '未开通'"
+            />
+          </template>
+        </a-table-column>
         <a-table-column title="操作">
           <template #cell="{ record }">
             <a-space>
-              <a-button
-                type="text"
-                size="mini"
-                @click="Modal.info({ title: 'Name', content: record.userName })"
-                >详情</a-button
-              >
-              <a-button
-                status="success"
-                size="mini"
-                @click="Modal.info({ title: 'Name', content: record.userName })"
-                >编辑</a-button
-              >
+              <a-button type="text" size="mini" @click="handleDetail(record)">详情</a-button>
+              <a-button status="success" size="mini" @click="handleEdit(record)">编辑</a-button>
               <a-popconfirm
                 content="确定删除该条记录吗？"
                 position="tr"
@@ -171,18 +176,15 @@
         </a-table-column>
       </template></a-table
     >
+    <pagination :total="50" @change="paginationChange" />
+    <Form ref="modal" />
   </a-card>
 </template>
 
 <script setup lang="ts">
-import breadcrumb from "@/components/breadcrumb.vue"
+import Form from "./components/form.vue"
 import { Modal, Message } from "@arco-design/web-vue"
 import { userList } from "@/api/user"
-const formModel = reactive({
-  name: "",
-  age: "",
-  address: "",
-})
 const data = reactive([
   {
     label: "Beijing",
@@ -202,15 +204,59 @@ const data = reactive([
   },
 ])
 const tableData = ref()
-const searchFrom = reactive({
+const loading = ref(true)
+
+const modal = ref<{ init: Function } | null>(null)
+interface Irecoder {
+  name?: string
+  age?: number
+  salary?: number
+  phone?: string
+  post?: string
+  isVip?: number
+  address?: string
+}
+// 新建数据
+const handleNew = () => {
+  modal.value?.init(0, null)
+}
+// 客户详情
+const handleDetail = (data: Irecoder) => {
+  modal.value?.init(1, data)
+}
+// 客户编辑
+const handleEdit = (data: Irecoder) => {
+  modal.value?.init(2, data)
+}
+// 定义请求数据
+interface IsearchFrom {
+  size: number
+  page: number
+  name?: string
+  age?: string
+  address?: string
+  test?: string
+  test2?: string[] | string
+  data?: string[]
+  endTime?: string
+  startTime?: string
+}
+const searchFrom: IsearchFrom = reactive({
   size: 10,
   page: 1,
-  keyWord: "",
 })
-const loading = ref(true)
+
+// 获取数据请求
 const fetchData = () => {
   loading.value = true
-  userList(searchFrom)
+  const params = {
+    ...searchFrom,
+  }
+  params.test2 = params.test2?.toString()
+  params.startTime = params.data?.[0]
+  params.endTime = params.data?.[1]
+  delete params.data
+  userList(params)
     .then((res) => {
       if (res.code === 200) {
         tableData.value = res.data
@@ -222,9 +268,17 @@ const fetchData = () => {
       loading.value = false
     })
 }
+// 搜索事件
 const handleSearch = () => {
   fetchData()
 }
+// 分页事件
+const paginationChange = (page: number, size: number) => {
+  searchFrom.page = page
+  searchFrom.size = size
+  fetchData()
+}
+// 初始化获取数据
 onMounted(() => {
   fetchData()
 })

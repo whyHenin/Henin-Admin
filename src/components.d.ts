@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Breadcrumb: typeof import('./components/breadcrumb.vue')['default']
     Icon: typeof import('./components/Icon.vue')['default']
+    Pagination: typeof import('./components/pagination.vue')['default']
   }
 }
 
