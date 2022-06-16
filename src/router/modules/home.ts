@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-22 16:27:43
- * @LastEditTime: 2022-04-22 23:34:10
+ * @LastEditTime: 2022-05-07 09:42:04
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\router\modules\home.ts
@@ -18,7 +18,7 @@ const routes: RouteRecordRaw = {
   },
   children: [
     {
-      path: "dashboard",
+      path: "/home/dashboard",
       name: "dashboard",
       component: () => import("@/views/home/dashboard.vue"),
       meta: {

@@ -1,7 +1,7 @@
 /*
  * @Author: Chen Xin
  * @Date: 2022-04-12 22:04:22
- * @LastEditTime: 2022-04-23 21:25:03
+ * @LastEditTime: 2022-05-07 10:40:47
  * @LastEditors: Chen Xin
  * @Description:
  * @FilePath: \Henin-Admin\src\store\user.ts
@@ -9,7 +9,6 @@
 //src/store/user.ts
 
 import { defineStore } from "pinia"
-// import { userType } from "./types"
 import { storageLocal } from "@/utils/storage"
 import { USER_TOKEN } from "@/utils/constants"
 

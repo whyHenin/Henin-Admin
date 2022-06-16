@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-20 15:00:35
- * @LastEditTime: 2022-04-24 20:30:37
+ * @LastEditTime: 2022-05-07 10:59:09
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\login\index.vue
@@ -101,7 +101,7 @@ const formMsg = ref("")
 const captchaUrl = ref("")
 // 获取验证码
 const getCaptcha = () => {
-  axios.get("https://www.hfzhishidai.com/marketServer/sys/getGifCode").then((res) => {
+  axios.get("https://www.beijiniu.net.cn/marketServer/sys/getGifCode").then((res) => {
     captchaUrl.value = res.data.data.image
   })
 }
@@ -110,14 +110,16 @@ const form = ref(null)
 // 登录
 const dologin = async () => {
   await login({ ...ruleForm }).then((res) => {
-    let redirect = route.query.redirect
-    if (typeof redirect !== "string") {
-      redirect = "/"
-    }
+    const { redirect, ...othersQuery } = router.currentRoute.value.query
     if (res.code === 200) {
       userStore.updateUser(res.data)
       setTimeout(() => {
-        router.replace(redirect)
+        router.push({
+          path: (redirect as string) || "/",
+          query: {
+            ...othersQuery,
+          },
+        })
       }, 3000)
     } else {
       formMsg.value = res.msg
