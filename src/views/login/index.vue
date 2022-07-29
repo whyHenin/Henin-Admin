@@ -1,18 +1,10 @@
-<!--
- * @Author: Chen Xin
- * @Date: 2022-04-20 15:00:35
- * @LastEditTime: 2022-07-29 19:55:21
- * @LastEditors: Chen Xin
- * @Description: 
- * @FilePath: \Henin-Admin\src\views\login\index.vue
--->
 <template>
   <div class="container">
-    <div class="left"></div>
+    <div class="left"><Swiper /></div>
     <div class="right">
       <div class="content">
-        <div class="form-title">登录 Arco Design Pro</div>
-        <div class="form-sub-title">登录 Arco Design Pro</div>
+        <div class="form-title">登录 Henin-Admin</div>
+        <div class="form-sub-title">登录 Henin-Admin</div>
         <div class="form-msg">{{ formMsg }}</div>
         <a-form
           ref="form"
@@ -59,6 +51,7 @@
 </template>
 
 <script setup lang="ts">
+import Swiper from "./components/swiper.vue"
 import axios from "axios"
 import { login } from "@/api/login"
 import { useUserStore } from "@/store/user"
@@ -95,8 +88,6 @@ const rules = ref({
     },
   ],
 })
-// 提示信息
-const formMsg = ref("")
 // 验证码图片
 const captchaUrl = ref("")
 // 获取验证码
@@ -105,6 +96,9 @@ const getCaptcha = () => {
     captchaUrl.value = res.data.data.image
   })
 }
+onMounted(() => {
+  getCaptcha()
+})
 // 表单实例
 const form = ref()
 // 登录
@@ -127,6 +121,8 @@ const dologin = async () => {
     }
   })
 }
+// 提示信息
+const formMsg = ref("")
 // 注册
 const doReg = () => {
   form.value.validate((valid: any) => {
@@ -149,8 +145,7 @@ onMounted(() => {
   height: 100%;
 }
 .left {
-  width: 25vw;
-  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  width: 35vw;
   height: 100vh;
 }
 .right {
