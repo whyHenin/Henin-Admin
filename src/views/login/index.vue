@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-20 15:00:35
- * @LastEditTime: 2022-05-07 10:59:09
+ * @LastEditTime: 2022-07-29 19:55:21
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\login\index.vue
@@ -106,7 +106,7 @@ const getCaptcha = () => {
   })
 }
 // 表单实例
-const form = ref(null)
+const form = ref()
 // 登录
 const dologin = async () => {
   await login({ ...ruleForm }).then((res) => {

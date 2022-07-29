@@ -9,14 +9,14 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "isolatedModules": true, //无法独立编译的模块Ts警告
+    "isolatedModules": false, //无法独立编译的模块Ts警告
     "suppressImplicitAnyIndexErrors": true, //消除elementPlus-icon类型警告
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["vite/client", "node"], //启用vite环境变量定义补充
+    "types": ["vite/client", "node"] //启用vite环境变量定义补充
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   // 编译器默认排除的编译文件

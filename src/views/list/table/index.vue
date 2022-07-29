@@ -1,7 +1,7 @@
 <!--
  * @Author: Chen Xin
  * @Date: 2022-04-19 10:41:59
- * @LastEditTime: 2022-05-06 18:03:20
+ * @LastEditTime: 2022-07-29 21:00:09
  * @LastEditors: Chen Xin
  * @Description: 
  * @FilePath: \Henin-Admin\src\views\list\table\index.vue
@@ -77,7 +77,7 @@
             </template>
             搜索
           </a-button>
-          <a-button @click="$refs.form.resetFields()">
+          <a-button @click="resetFormData">
             <template #icon>
               <icon-refresh />
             </template>
@@ -271,6 +271,11 @@ const fetchData = () => {
 // 搜索事件
 const handleSearch = () => {
   fetchData()
+}
+// 表单重置
+const form = ref()
+const resetFormData = () => {
+  form.value.resetFields()
 }
 // 分页事件
 const paginationChange = (page: number, size: number) => {
