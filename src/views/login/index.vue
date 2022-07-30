@@ -15,34 +15,40 @@
           @submit="dologin"
         >
           <a-form-item field="name" hide-label>
-            <a-input v-model="ruleForm.name" placeholder="账号"
+            <a-input v-model="ruleForm.name" placeholder="账号" size="large"
               ><template #prefix> <icon-user /> </template
             ></a-input>
           </a-form-item>
           <a-form-item field="password" hide-label>
-            <a-input-password v-model="ruleForm.password" placeholder="密码" allow-clear
+            <a-input-password
+              v-model="ruleForm.password"
+              placeholder="密码"
+              allow-clear
+              size="large"
               ><template #prefix> <icon-lock /> </template
             ></a-input-password>
           </a-form-item>
           <a-form-item field="captcha" hide-label>
             <a-row :gutter="15">
               <a-col :span="14"
-                ><a-input v-model="ruleForm.captcha" placeholder="验证码"
+                ><a-input v-model="ruleForm.captcha" placeholder="验证码" size="large"
                   ><template #prefix> <icon-image /> </template></a-input
               ></a-col>
-              <a-col :span="6"> <img class="captchaImg" :src="captchaUrl" alt="" /></a-col>
+              <a-col :span="6">
+                <img class="captchaImg" :src="captchaUrl" alt="" style="height: 34px"
+              /></a-col>
               <a-col :span="2"
-                ><a-button type="text" shape="circle" @click="getCaptcha"
+                ><a-button type="text" shape="circle" size="large" @click="getCaptcha"
                   ><icon-refresh
                 /></a-button>
               </a-col>
             </a-row>
           </a-form-item>
           <a-form-item hide-label>
-            <a-button type="primary" long html-type="submit">登录</a-button>
+            <a-button type="primary" long html-type="submit" size="large">登录</a-button>
           </a-form-item>
           <a-form-item hide-label>
-            <a-button type="text" long @click="doReg">立即注册</a-button>
+            <a-button type="text" long size="large" @click="doReg">立即注册</a-button>
           </a-form-item>
         </a-form>
       </div>
@@ -101,28 +107,27 @@ onMounted(() => {
 })
 // 表单实例
 const form = ref()
-// 登录
-const dologin = async () => {
-  await login({ ...ruleForm }).then((res) => {
-    const { redirect, ...othersQuery } = router.currentRoute.value.query
-    if (res.code === 200) {
-      userStore.updateUser(res.data)
-      setTimeout(() => {
-        router.push({
-          path: (redirect as string) || "/",
-          query: {
-            ...othersQuery,
-          },
-        })
-      }, 3000)
-    } else {
-      formMsg.value = res.msg
-      getCaptcha()
-    }
-  })
-}
 // 提示信息
 const formMsg = ref("")
+// 登录
+const dologin = async () => {
+  form.value.validate
+  // await login({ ...ruleForm }).then((res) => {
+  //   const { redirect, ...othersQuery } = router.currentRoute.value.query
+  //   if (res.code === 200) {
+  //     userStore.updateUser(res.data)
+  //     router.push({
+  //       path: (redirect as string) || "/",
+  //       query: {
+  //         ...othersQuery,
+  //       },
+  //     })
+  //   } else {
+  //     formMsg.value = res.msg
+  //     getCaptcha()
+  //   }
+  // })
+}
 // 注册
 const doReg = () => {
   form.value.validate((valid: any) => {
@@ -130,7 +135,7 @@ const doReg = () => {
       // console.log("验证不通过")
     } else {
       // console.log("通过!!")
-      return false
+      // return false
     }
   })
 }
@@ -145,7 +150,7 @@ onMounted(() => {
   height: 100%;
 }
 .left {
-  width: 35vw;
+  width: 30vw;
   height: 100vh;
 }
 .right {
@@ -154,14 +159,16 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #e4e7eb;
   .content {
-    width: 320px;
-    height: 100%;
+    padding: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    border-radius: var(--border-radius-medium);
+    background-color: var(--color-bg-2);
+    box-shadow: 0 4px 10px rgb(var(--gray-2));
     .form-title {
       color: var(--color-text-1);
       font-weight: 500;
@@ -179,7 +186,7 @@ onMounted(() => {
     }
     .form-msg {
       height: 32px;
-      color: rgb(var(--red-6));
+      color: rgb(var(--danger-6));
       line-height: 32px;
       width: 100%;
       text-align: left;
